@@ -62,7 +62,7 @@ func (d *DockerCli) PushImage(ctx context.Context, repo, tag, registryAuth strin
 	return imgName, err
 }
 
-func (d *DockerCli) Load(ctx context.Context, imageFile string) error {
+func (d *DockerCli) LoadImage(ctx context.Context, imageFile string) error {
 	file, err := os.Open(imageFile)
 	if err != nil {
 		return err
@@ -72,7 +72,7 @@ func (d *DockerCli) Load(ctx context.Context, imageFile string) error {
 	return err
 }
 
-func (d *DockerCli) Save(ctx context.Context, ids []string, path string) error {
+func (d *DockerCli) SaveImage(ctx context.Context, ids []string, path string) error {
 	file, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
 	if err != nil {
 		return err
